@@ -1,0 +1,25 @@
+name: 'test'
+tiletypes:
+  - type: walls
+    layer: fg
+    colour: '#000000'
+    auto-tile: true
+    variants: 4
+    start_position: [0, 0]
+    block-ids:
+
+  - type: bg_walls
+    layer: bg
+    colour: '#808080'
+    auto-tile: true
+    variants: 4
+    start_position: [0, 5]
+    block-ids:
+
+  - type: bg
+    layer: bg_2
+    colour: 'transparent'
+    auto-tile: false
+    variants: 2
+    start_position: [ 6, 8 ]
+    block-ids:
