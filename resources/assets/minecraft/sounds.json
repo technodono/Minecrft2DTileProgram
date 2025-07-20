@@ -1,0 +1,15 @@
+{
+	"ambient.cave": {
+		"replace": true,
+		"sounds": []
+	},
+	"music.game": {
+		"replace": true,
+		"sounds": []
+	},
+	"music.menu": {
+		"replace": true,
+		"sounds": []
+	}
+
+}

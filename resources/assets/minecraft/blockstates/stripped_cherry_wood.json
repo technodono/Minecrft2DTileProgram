@@ -1,0 +1,23 @@
+{
+	"variants": {
+		"axis=x": [{
+				"model": "minecraft:block/grill_4-1",
+				"weight": 5
+			},
+			{
+				"model": "minecraft:block/grill_4-1a",
+				"weight": 5
+			},
+			{
+				"model": "minecraft:block/grill_4-1b",
+				"weight": 3
+			}
+		],
+		"axis=y": {
+			"model": "minecraft:block/grill_4-2"
+		},
+		"axis=z": {
+			"model": "minecraft:block/grill_5-0"
+		}
+	}
+}

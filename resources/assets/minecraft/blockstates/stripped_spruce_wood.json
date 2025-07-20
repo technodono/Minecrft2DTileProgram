@@ -1,0 +1,39 @@
+{
+  "variants": {
+    "axis=x": [
+      {
+        "model": "minecraft:block/purple_brick_4-1",
+        "weight": 60
+      },
+      {
+        "model": "minecraft:block/purple_brick_4-1a",
+        "weight": 1
+      },
+      {
+        "model": "minecraft:block/purple_brick_4-1b",
+        "weight": 5
+      }
+    ],
+    "axis=y": [
+      {
+        "model": "minecraft:block/purple_brick_4-2",
+        "weight": 6
+      },
+      {
+        "model": "minecraft:block/purple_brick_4-2a",
+        "weight": 1
+      },
+      {
+        "model": "minecraft:block/purple_brick_4-2b",
+        "weight": 1
+      },
+      {
+        "model": "minecraft:block/purple_brick_4-2c",
+        "weight": 1
+      }
+    ],
+    "axis=z": {
+      "model": "minecraft:block/purple_brick_5-0"
+    }
+  }
+}

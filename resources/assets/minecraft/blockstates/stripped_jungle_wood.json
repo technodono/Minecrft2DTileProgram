@@ -1,0 +1,50 @@
+{
+	"variants": {
+		"axis=x": [{
+				"model": "minecraft:block/teal_tile_4-1",
+				"weight": 60
+			},
+			{
+				"model": "minecraft:block/teal_tile_4-1a",
+				"weight": 5
+			},
+			{
+				"model": "minecraft:block/teal_tile_4-1b",
+				"weight": 5
+			},
+			{
+				"model": "minecraft:block/teal_tile_4-1c",
+				"weight": 5
+			},
+			{
+				"model": "minecraft:block/teal_tile_4-1d",
+				"weight": 5
+			},
+			{
+				"model": "minecraft:block/teal_tile_4-1e",
+				"weight": 1
+			}
+		],
+
+		"axis=y": [{
+				"model": "minecraft:block/teal_tile_4-2",
+				"weight": 6
+			},
+			{
+				"model": "minecraft:block/teal_tile_4-2a",
+				"weight": 1
+			},
+			{
+				"model": "minecraft:block/teal_tile_4-2b",
+				"weight": 1
+			},
+			{
+				"model": "minecraft:block/teal_tile_4-2c",
+				"weight": 1
+			}
+		],
+		"axis=z": {
+			"model": "minecraft:block/teal_tile_5-0"
+		}
+	}
+}
