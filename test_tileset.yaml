@@ -1,0 +1,7 @@
+name: 'test'
+  tiletype: walls
+    layer: layer_0
+    colour: '#000000'
+    auto-tile: true
+    quadrant_position: 0,0
+
