@@ -22,8 +22,9 @@ tiletypes:
   - 0
   - 0
   type: walls
-  variants: 4
-  weights: [1,1,1,1]
+  variants: 5
+  variant-layout: horz
+  weights: [1,1,1,1,1]
 - auto-tile: true
   block-ids:
   - sand
@@ -46,8 +47,9 @@ tiletypes:
   - 0
   - 5
   type: bg_walls
-  variants: 4
-  weights: [1,1,1,1]
+  variants: 5
+  variant-layout: horz
+  weights: [1,1,1,1,1]
 - auto-tile: false
   block-ids: []
   colour: transparent
@@ -56,5 +58,6 @@ tiletypes:
   - 6
   - 8
   type: bg
-  variants: 2
-  weights: [1,1,1,1]
+  variants: 3
+  variant-layout: vert
+  weights: [1,1,1]
