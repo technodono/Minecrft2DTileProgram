@@ -32,12 +32,12 @@ cube_model_blocks = [
 
 
 ###define funcs earlier here
-def writetToJsonModel(name, layer, index, x, y, variant):
+def writetToJsonModel(name, layer, index, x, y):
     json_file = open(f"resources/assets/minecraft/models/block/{cube_model_blocks[index]}.json", 'w')
     json_data = {
         "parent": f"minecraft:block/{layer}",
         "textures": {
-            "all": f"tiles:{name}/{name}_{x}_{y}{variant}"
+            "all": f"tiles:{name}/{name}_{x}_{y}"
         }
     }
     json.dump(json_data, json_file)
@@ -63,12 +63,13 @@ for tiles in tileset_yaml['tiletypes']:
                 x+= x_start
                 y += y_start
                 tiles['block-ids'].append(cube_model_blocks[block_index])
-                writetToJsonModel(tileset_yaml['name'],tiles['layer'],block_index, x, y,"")
+                writetToJsonModel(tileset_yaml['name'],tiles['layer'],block_index, x, y)
                 block_index += 1
 
     variants_json_list = []
     block_index += 1 ## Advance block by only 1 for a block and it's states
-    for x in range (0,tiles['variants']):
+    tiles['block-ids'].append(cube_model_blocks[block_index])
+    for x in range (0,tiles['variants']): # Give variants cool mc files
         (x_start, y_start) = tiles['start-position']
         if tiles['auto-tile']:
             y = y_start + 3
@@ -76,10 +77,9 @@ for tiles in tileset_yaml['tiletypes']:
             y += y_start
         x += x_start
         variants_json_list[cube_model_blocks[block_index]] = {
-            "model": cube_model_blocks[block_index],
+            "model": f"{x}_{y}",
             "weight": tiles['weights'][x]
             }
-        tiles['block-ids'].append(cube_model_blocks[block_index])
         writetToJsonModel(tileset_yaml['name'], tiles['layer'], block_index, x, y)
 
     json_data = {
