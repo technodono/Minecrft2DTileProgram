@@ -67,7 +67,6 @@ for tiles in tileset_yaml['tiletypes']:
                 block_index += 1
 
     variants_json_list = []
-    block_index += 1 ## Advance block by only 1 for a block and it's states
     tiles['block-ids'].append(cube_model_blocks[block_index])
     for x in range (0,tiles['variants']): # Give variants cool mc files
         (x_start, y_start) = tiles['start-position']
@@ -82,6 +81,7 @@ for tiles in tileset_yaml['tiletypes']:
             })
         writeToJsonModel(tileset_yaml['name'], tiles['layer'], block_index, x_off, y_off)
         block_index += 1
+
     json_data = {
         "variants": variants_json_list
     }

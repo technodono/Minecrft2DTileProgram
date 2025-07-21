@@ -16,7 +16,7 @@ tiletypes:
   - cherry_planks
   - crimson_planks
   - warped_planks
-  - red_sand
+  - sand
   colour: '#000000'
   layer: fg
   start-position:
@@ -33,6 +33,7 @@ tiletypes:
   - 1
 - auto-tile: true
   block-ids:
+  - ice
   - packed_ice
   - blue_ice
   - coal_block
@@ -47,7 +48,6 @@ tiletypes:
   - waxed_weathered_copper
   - waxed_oxidized_copper
   - cut_copper
-  - redstone_block
   colour: '#808080'
   layer: bg
   start-position:
@@ -64,7 +64,7 @@ tiletypes:
   - 1
 - auto-tile: false
   block-ids:
-  - deepslate
+  - calcite
   colour: transparent
   layer: bg
   start-position:
