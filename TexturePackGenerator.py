@@ -60,27 +60,27 @@ for tiles in tileset_yaml['tiletypes']:
         (x_start,y_start) = tiles['start-position']
         for x in range(0,7):
             for y in range(0,2):
-                x+= x_start
-                y += y_start
+                x_off = x_start + x
+                y_off = y_start + y
                 tiles['block-ids'].append(cube_model_blocks[block_index])
-                writetToJsonModel(tileset_yaml['name'],tiles['layer'],block_index, x, y)
+                writetToJsonModel(tileset_yaml['name'],tiles['layer'],block_index, x_off, y_off)
                 block_index += 1
 
-    variants_json_list = []
+    variants_json_list = {}
     block_index += 1 ## Advance block by only 1 for a block and it's states
     tiles['block-ids'].append(cube_model_blocks[block_index])
     for x in range (0,tiles['variants']): # Give variants cool mc files
         (x_start, y_start) = tiles['start-position']
         if tiles['auto-tile']:
-            y = y_start + 3
+            y_off = y_start + 3
         else:
-            y += y_start
-        x += x_start
+            y_off = y_start + y
+        x_off = x_start + x
         variants_json_list[cube_model_blocks[block_index]] = {
-            "model": f"{x}_{y}",
+            "model": f"{x_off}_{y_off}",
             "weight": tiles['weights'][x]
             }
-        writetToJsonModel(tileset_yaml['name'], tiles['layer'], block_index, x, y)
+        writetToJsonModel(tileset_yaml['name'], tiles['layer'], block_index, x_off, y_off)
 
     json_data = {
         "variants": variants_json_list

@@ -16,11 +16,7 @@ tiletypes:
   - cherry_planks
   - crimson_planks
   - warped_planks
-  - sand
   - red_sand
-  - gravel
-  - clay
-  - snow_block
   colour: '#000000'
   layer: fg
   start-position:
@@ -37,6 +33,10 @@ tiletypes:
   - 1
 - auto-tile: true
   block-ids:
+  - red_sand
+  - gravel
+  - clay
+  - snow_block
   - ice
   - packed_ice
   - blue_ice
@@ -47,15 +47,7 @@ tiletypes:
   - emerald_block
   - netherite_block
   - copper_block
-  - waxed_copper_block
   - waxed_exposed_copper
-  - waxed_weathered_copper
-  - waxed_oxidized_copper
-  - cut_copper
-  - waxed_cut_copper
-  - redstone_block
-  - lapis_block
-  - amethyst_block
   colour: '#808080'
   layer: bg
   start-position:
@@ -72,9 +64,7 @@ tiletypes:
   - 1
 - auto-tile: false
   block-ids:
-  - calcite
-  - tuff
-  - dripstone_block
+  - waxed_weathered_copper
   colour: transparent
   layer: bg
   start-position:
