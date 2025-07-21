@@ -32,7 +32,7 @@ cube_model_blocks = [
 
 
 ###define funcs earlier here
-def writetToJsonModel(name, layer, index, x, y):
+def writeToJsonModel(name, layer, index, x, y):
     json_file = open(f"resources/assets/minecraft/models/block/{cube_model_blocks[index]}.json", 'w')
     json_data = {
         "parent": f"minecraft:block/{layer}",
@@ -63,7 +63,7 @@ for tiles in tileset_yaml['tiletypes']:
                 x_off = x_start + x
                 y_off = y_start + y
                 tiles['block-ids'].append(cube_model_blocks[block_index])
-                writetToJsonModel(tileset_yaml['name'],tiles['layer'],block_index, x_off, y_off)
+                writeToJsonModel(tileset_yaml['name'],tiles['layer'],block_index, x_off, y_off)
                 block_index += 1
 
     variants_json_list = {}
@@ -80,7 +80,7 @@ for tiles in tileset_yaml['tiletypes']:
             "model": f"{x_off}_{y_off}",
             "weight": tiles['weights'][x]
             }
-        writetToJsonModel(tileset_yaml['name'], tiles['layer'], block_index, x_off, y_off)
+        writeToJsonModel(tileset_yaml['name'], tiles['layer'], block_index, x_off, y_off)
 
     json_data = {
         "variants": variants_json_list
