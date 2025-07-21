@@ -61,16 +61,15 @@ for tiles in tileset_yaml['tiletypes']:
                 writetToJsonModel(tileset_yaml['name'],tiles['layer'],block_index, x, y)
                 block_index += 1
 
-    if tiles['variants'] > 1:
-        for x in range (0,tiles['variants']):
-            if tiles['auto-tile']:
-                y = y_start + 3
-            else:
-                y += y_start
-            x += x_start
-            tiles['block-ids'].append(cube_model_blocks[block_index])
-            writetToJsonModel(tileset_yaml['name'], tiles['layer'], block_index, x, y)
-            block_index += 1
+    for x in range (0,tiles['variants']):
+        if tiles['auto-tile']:
+            y = y_start + 3
+        else:
+            y += y_start
+        x += x_start
+        tiles['block-ids'].append(cube_model_blocks[block_index])
+        writetToJsonModel(tileset_yaml['name'], tiles['layer'], block_index, x, y)
+        block_index += 1
 
 with open(tileset, "w") as file_write:
     yaml.dump(tileset_yaml, file_write)
