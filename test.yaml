@@ -33,11 +33,6 @@ tiletypes:
   - 1
 - auto-tile: true
   block-ids:
-  - red_sand
-  - gravel
-  - clay
-  - snow_block
-  - ice
   - packed_ice
   - blue_ice
   - coal_block
@@ -47,7 +42,12 @@ tiletypes:
   - emerald_block
   - netherite_block
   - copper_block
+  - waxed_copper_block
   - waxed_exposed_copper
+  - waxed_weathered_copper
+  - waxed_oxidized_copper
+  - cut_copper
+  - redstone_block
   colour: '#808080'
   layer: bg
   start-position:
@@ -64,7 +64,7 @@ tiletypes:
   - 1
 - auto-tile: false
   block-ids:
-  - waxed_weathered_copper
+  - deepslate
   colour: transparent
   layer: bg
   start-position:
