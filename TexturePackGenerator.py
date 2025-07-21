@@ -32,8 +32,16 @@ cube_model_blocks = [
 
 
 ###define funcs earlier here
-
-##########################
+def writetToJsonModel(name, layer, index, x, y):
+    json_file = open(f"resources/assets/minecraft/models/block/{cube_model_blocks[index]}.json", 'w')
+    json_data = {
+        "parent": f"minecraft:block/{layer}",
+        "textures": {
+            "all": f"tiles:{name}/{name}_{x}_{y}"
+        }
+    }
+    json.dump(json_data, json_file)
+##########################x
 
 tileset = input("tileset name: ") + ".yaml"
 tilesetopened = open(tileset)
@@ -41,10 +49,7 @@ tileset_yaml = yaml.safe_load(tilesetopened)
 block_index = 0
 
 for tiles in tileset_yaml['tiletypes']:
-    tiles['block-ids'] = []
-    if tiles['block-ids']:
-        print(tiles['type'] + " models already assigned")
-        continue
+    tiles['block-ids'].clear()
     if tiles['auto-tile']:
         print("auto-tiling enabled")
         (x_start,y_start) = tiles['start-position']
@@ -53,26 +58,19 @@ for tiles in tileset_yaml['tiletypes']:
                 x+= x_start
                 y += y_start
                 tiles['block-ids'].append(cube_model_blocks[block_index])
-                json_file = open(f"resources/assets/minecraft/models/block/{cube_model_blocks[block_index]}.json", 'w')
-                json_data = {
-                    "parent": f"minecraft:block/{tiles['layer']}",
-                    "textures": {
-                        "all": f"tiles:{tileset_yaml['name']}/{tileset_yaml['name']}_{x}_{y}"
-                    }
-                }
-                json.dump(json_data, json_file)
+                writetToJsonModel(tileset_yaml['name'],tiles['layer'],block_index, x, y)
                 block_index += 1
+
+    if tiles['variants'] > 1:
         for x in range (0,tiles['variants']):
-            y = y_start + 3
+            if tiles['auto-tile']:
+                y = y_start + 3
+            else:
+                y += y_start
             x += x_start
             tiles['block-ids'].append(cube_model_blocks[block_index])
-            json_file = open(f"resources/assets/minecraft/models/block/{cube_model_blocks[block_index]}.json", 'w')
-            json_data = {
-                "parent": f"minecraft:block/{tiles['layer']}",
-                "textures": {
-                    "all": f"tiles:{tileset_yaml['name']}/{tileset_yaml['name']}_{x}_{y}"
-                }
-            }
+            writetToJsonModel(tileset_yaml['name'], tiles['layer'], block_index, x, y)
+            block_index += 1
 
 with open(tileset, "w") as file_write:
     yaml.dump(tileset_yaml, file_write)
