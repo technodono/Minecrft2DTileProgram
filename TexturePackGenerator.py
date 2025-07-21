@@ -1,4 +1,10 @@
 import yaml
+import json
+
+from fontTools.t1Lib import write
+from numpy.ma.core import append
+from pyparsing import Empty
+
 cube_model_blocks = [
     "stone", "dirt", "grass_block", "oak_planks", "spruce_planks", "birch_planks", "jungle_planks",
     "acacia_planks", "dark_oak_planks", "mangrove_planks", "bamboo_planks", "cherry_planks",
@@ -23,4 +29,53 @@ cube_model_blocks = [
     "gray_concrete", "light_gray_concrete", "cyan_concrete", "purple_concrete", "blue_concrete",
     "brown_concrete", "green_concrete", "red_concrete", "black_concrete", "hay_block", "bookshelf"
 ]
+
+
+###define funcs earlier here
+
+##########################
+
+tileset = input("tileset name: ") + ".yaml"
+tilesetopened = open(tileset)
+tileset_yaml = yaml.safe_load(tilesetopened)
+block_index = 0
+
+for tiles in tileset_yaml['tiletypes']:
+    tiles['block-ids'] = []
+    if tiles['block-ids']:
+        print(tiles['type'] + " models already assigned")
+        continue
+    if tiles['auto-tile']:
+        print("auto-tiling enabled")
+        (x_start,y_start) = tiles['start-position']
+        for x in range(0,7):
+            for y in range(0,2):
+                x+= x_start
+                y += y_start
+                tiles['block-ids'].append(cube_model_blocks[block_index])
+                json_file = open(f"resources/assets/minecraft/models/block/{cube_model_blocks[block_index]}.json", 'w')
+                json_data = {
+                    "parent": f"minecraft:block/{tiles['layer']}",
+                    "textures": {
+                        "all": f"tiles:{tileset_yaml['name']}/{tileset_yaml['name']}_{x}_{y}"
+                    }
+                }
+                json.dump(json_data, json_file)
+                block_index += 1
+        for x in range (0,tiles['variants']):
+            y = y_start + 3
+            x += x_start
+            tiles['block-ids'].append(cube_model_blocks[block_index])
+            json_file = open(f"resources/assets/minecraft/models/block/{cube_model_blocks[block_index]}.json", 'w')
+            json_data = {
+                "parent": f"minecraft:block/{tiles['layer']}",
+                "textures": {
+                    "all": f"tiles:{tileset_yaml['name']}/{tileset_yaml['name']}_{x}_{y}"
+                }
+            }
+
+with open(tileset, "w") as file_write:
+    yaml.dump(tileset_yaml, file_write)
+
+
 

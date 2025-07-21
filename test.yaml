@@ -1,25 +1,60 @@
-name: 'test'
+name: test
 tiletypes:
-  - type: walls
-    layer: fg
-    colour: '#000000'
-    auto-tile: true
-    variants: 4
-    start_position: [0, 0]
-    block-ids:
-
-  - type: bg_walls
-    layer: bg
-    colour: '#808080'
-    auto-tile: true
-    variants: 4
-    start_position: [0, 5]
-    block-ids:
-
-  - type: bg
-    layer: bg_2
-    colour: 'transparent'
-    auto-tile: false
-    variants: 2
-    start_position: [ 6, 8 ]
-    block-ids:
+- auto-tile: true
+  block-ids:
+  - stone
+  - dirt
+  - grass_block
+  - oak_planks
+  - spruce_planks
+  - birch_planks
+  - jungle_planks
+  - acacia_planks
+  - dark_oak_planks
+  - mangrove_planks
+  - bamboo_planks
+  - cherry_planks
+  - crimson_planks
+  - warped_planks
+  colour: '#000000'
+  layer: fg
+  start-position:
+  - 0
+  - 0
+  type: walls
+  variants: 4
+  weights: [1,1,1,1]
+- auto-tile: true
+  block-ids:
+  - sand
+  - red_sand
+  - gravel
+  - clay
+  - snow_block
+  - ice
+  - packed_ice
+  - blue_ice
+  - coal_block
+  - iron_block
+  - gold_block
+  - diamond_block
+  - emerald_block
+  - netherite_block
+  colour: '#808080'
+  layer: bg
+  start-position:
+  - 0
+  - 5
+  type: bg_walls
+  variants: 4
+  weights: [1,1,1,1]
+- auto-tile: false
+  block-ids: []
+  colour: transparent
+  layer: bg
+  start-position:
+  - 6
+  - 8
+  type: bg
+  variants: 2
+  weights: [1,1,1,1]
