@@ -26,7 +26,7 @@ tiletypes:
   variant-layout: horz
   variants: 5
   weights:
-  - 1
+  - 10
   - 1
   - 1
   - 1
@@ -57,7 +57,7 @@ tiletypes:
   variant-layout: horz
   variants: 5
   weights:
-  - 1
+  - 10
   - 1
   - 1
   - 1
@@ -74,6 +74,6 @@ tiletypes:
   variant-layout: vert
   variants: 3
   weights:
-  - 1
-  - 1
-  - 1
+  - 10
+  - 5
+  - 3
