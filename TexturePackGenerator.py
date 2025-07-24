@@ -58,8 +58,8 @@ for tiles in tileset_yaml['tiletypes']:
     if tiles['auto-tile']:
         print("auto-tiling enabled")
         (x_start,y_start) = tiles['start-position']
-        for x in range(0,7):
-            for y in range(0,2):
+        for x in range(0,8):
+            for y in range(0,3):
                 x_off = x_start + x
                 y_off = y_start + y
                 tiles['block-ids'].append(cube_model_blocks[block_index])
