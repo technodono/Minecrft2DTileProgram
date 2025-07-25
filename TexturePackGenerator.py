@@ -37,7 +37,8 @@ def writeToJsonModel(name, layer, index, x, y):
     json_data = {
         "parent": f"minecraft:block/{layer}",
         "textures": {
-            "all": f"tiles:{name}/{name}_{x}_{y}"
+            "texture": f"tiles:{name}/{name}_{x}_{y}",
+            "particle": f"tiles:{name}/{name}_{x}_{y}"
         }
     }
     json.dump(json_data, json_file)
@@ -52,9 +53,11 @@ tileset = input("tileset name: ") + ".yaml"
 tilesetopened = open(tileset)
 tileset_yaml = yaml.safe_load(tilesetopened)
 block_index = 0
+variants_json_list = []
 
 for tiles in tileset_yaml['tiletypes']:
     tiles['block-ids'].clear()
+    variants_json_list.clear()
     if tiles['auto-tile']:
         print("auto-tiling enabled")
         (x_start,y_start) = tiles['start-position']
@@ -64,16 +67,22 @@ for tiles in tileset_yaml['tiletypes']:
                 y_off = y_start + y
                 tiles['block-ids'].append(cube_model_blocks[block_index])
                 writeToJsonModel(tileset_yaml['name'],tiles['layer'],block_index, x_off, y_off)
+                json_data = {
+                    "variants": {
+                        "": {
+                            "model": f"minecraft:block/{cube_model_blocks[block_index]}"
+                        }
+                    }
+                }
+                writeToJsonBlockstate(json_data, block_index)
                 block_index += 1
-
-    variants_json_list = []
     tiles['block-ids'].append(cube_model_blocks[block_index])
     for x in range (0,tiles['variants']): # Give variants cool mc files
         (x_start, y_start) = tiles['start-position']
         if tiles['auto-tile']:
             y_off = y_start + 3
         else:
-            y_off = y_start + y
+            y_off = y_start
         x_off = x_start + x
         variants_json_list.append({
             "model": f"minecraft:block/{cube_model_blocks[block_index]}",
@@ -83,7 +92,9 @@ for tiles in tileset_yaml['tiletypes']:
         block_index += 1
 
     json_data = {
-        "variants": variants_json_list
+        "variants": {
+            "": variants_json_list
+        }
     }
     writeToJsonBlockstate(json_data, block_index - tiles['variants'])
 

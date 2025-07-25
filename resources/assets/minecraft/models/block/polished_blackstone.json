@@ -1,1 +1,1 @@
-{"parent": "minecraft:block/bg_floor_tileable", "textures": {"all": "tiles:test/test_6_7"}}
+{"parent": "minecraft:block/bg", "textures": {"texture": "tiles:test/test_6_7", "particle": "tiles:test/test_6_7"}}

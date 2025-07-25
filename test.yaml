@@ -65,7 +65,7 @@ tiletypes:
   - basalt
   - smooth_basalt
   colour: '#808080'
-  layer: bg_floor_tileable
+  layer: bg
   start-position:
   - 0
   - 5

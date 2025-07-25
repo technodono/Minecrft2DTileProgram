@@ -1,1 +1,1 @@
-{"parent": "minecraft:block/fg", "textures": {"all": "tiles:test/test_7_2"}}
+{"parent": "minecraft:block/fg", "textures": {"texture": "tiles:test/test_7_2", "particle": "tiles:test/test_7_2"}}

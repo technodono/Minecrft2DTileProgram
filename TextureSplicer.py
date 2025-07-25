@@ -1,10 +1,9 @@
 import os
 from PIL import Image
 ResourcePackScale = 16
-ImageOutputDir = os.path.join("resources", "assets", "tiles", "textures", "tile","")
-os.makedirs(ImageOutputDir, exist_ok=True)
-
 TilesetName = input("Please enter the name of the tileset you would like to generate: ")
+ImageOutputDir = os.path.join("resources", "assets", "tiles", "textures", TilesetName,"")
+os.makedirs(ImageOutputDir, exist_ok=True)
 TilesetImage = Image.open(TilesetName +".png")
 for x in range(0,TilesetImage.width,ResourcePackScale):
     for y in range(0,TilesetImage.height,ResourcePackScale):
