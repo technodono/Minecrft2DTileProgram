@@ -26,7 +26,7 @@ tiletypes:
   - blue_ice
   - coal_block
   - iron_block
-  - diamond_block
+  - gold_block
   colour: '#000000'
   layer: fg
   start-position:
@@ -34,12 +34,8 @@ tiletypes:
   - 0
   type: walls
   variant-layout: horz
-  variants: 5
+  variants: 1
   weights:
-  - 1
-  - 1
-  - 1
-  - 1
   - 1
 - auto-tile: true
   block-ids:
@@ -67,33 +63,35 @@ tiletypes:
   - chiseled_polished_blackstone
   - gilded_blackstone
   - basalt
-  - end_stone
+  - smooth_basalt
   colour: '#808080'
-  layer: bg
+  layer: bg_floor_tileable
   start-position:
   - 0
   - 5
-  type: bg_walls
+  type: bg_floor
   variant-layout: horz
+  variants: 5
+  weights:
+  - 20
+  - 2
+  - 2
+  - 2
+  - 2
+- auto-tile: false
+  block-ids:
+  - nether_bricks
+  colour: transparent
+  layer: bg
+  start-position:
+  - 4
+  - 4
+  type: bg
+  variant-layout: vert
   variants: 5
   weights:
   - 1
   - 1
-  - 1
-  - 1
-  - 1
-- auto-tile: false
-  block-ids:
-  - purpur_block
-  colour: transparent
-  layer: bg
-  start-position:
-  - 6
-  - 8
-  type: bg
-  variant-layout: vert
-  variants: 3
-  weights:
   - 1
   - 1
   - 1
