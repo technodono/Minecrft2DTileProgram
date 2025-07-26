@@ -1,1 +1,1 @@
-{"variants": {"": {"model": "minecraft:block/netherite_block"}}}
+{"variants": {"": [{"model": "minecraft:block/netherite_block", "weight": 1}]}}

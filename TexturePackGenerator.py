@@ -8,7 +8,7 @@ from pyparsing import Empty
 cube_model_blocks = [
     "stone", "dirt", "grass_block", "oak_planks", "spruce_planks", "birch_planks", "jungle_planks",
     "acacia_planks", "dark_oak_planks", "mangrove_planks", "bamboo_planks", "cherry_planks",
-    "crimson_planks", "warped_planks", "sand", "red_sand", "gravel", "clay", "snow_block",
+    "crimson_planks", "warped_planks", "clay", "snow_block",
     "ice", "packed_ice", "blue_ice", "coal_block", "iron_block", "gold_block", "diamond_block",
     "emerald_block", "netherite_block", "copper_block", "waxed_copper_block", "waxed_exposed_copper",
     "waxed_weathered_copper", "waxed_oxidized_copper", "cut_copper", "waxed_cut_copper",
@@ -61,8 +61,8 @@ for tiles in tileset_yaml['tiletypes']:
     if tiles['auto-tile']:
         print("auto-tiling enabled")
         (x_start,y_start) = tiles['start-position']
-        for x in range(0,8):
-            for y in range(0,3):
+        for y in range(0,3):
+            for x in range(0,8):
                 x_off = x_start + x
                 y_off = y_start + y
                 tiles['block-ids'].append(cube_model_blocks[block_index])

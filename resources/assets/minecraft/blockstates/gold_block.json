@@ -1,1 +1,1 @@
-{"variants": {"": [{"model": "minecraft:block/gold_block", "weight": 1}]}}
+{"variants": {"": {"model": "minecraft:block/gold_block"}}}

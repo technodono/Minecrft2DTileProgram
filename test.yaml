@@ -16,9 +16,6 @@ tiletypes:
   - cherry_planks
   - crimson_planks
   - warped_planks
-  - sand
-  - red_sand
-  - gravel
   - clay
   - snow_block
   - ice
@@ -27,6 +24,9 @@ tiletypes:
   - coal_block
   - iron_block
   - gold_block
+  - diamond_block
+  - emerald_block
+  - netherite_block
   colour:
   - 0
   - 0
@@ -43,9 +43,6 @@ tiletypes:
   - 1
 - auto-tile: true
   block-ids:
-  - diamond_block
-  - emerald_block
-  - netherite_block
   - copper_block
   - waxed_copper_block
   - waxed_exposed_copper
@@ -68,6 +65,9 @@ tiletypes:
   - gilded_blackstone
   - basalt
   - smooth_basalt
+  - end_stone
+  - purpur_block
+  - purpur_pillar
   colour:
   - 255
   - 255
@@ -77,18 +77,14 @@ tiletypes:
   start-position:
   - 0
   - 4
-  type: bg_floor
+  type: bg-stripes
   variant-layout: horz
-  variants: 5
+  variants: 1
   weights:
-  - 20
-  - 2
-  - 2
-  - 2
-  - 2
+  - 1
 - auto-tile: false
   block-ids:
-  - nether_bricks
+  - netherrack
   colour:
   - 0
   - 0
@@ -96,14 +92,16 @@ tiletypes:
   - 0
   layer: bg
   start-position:
+  - 1
   - 3
-  - 3
-  type: bg
+  type: floor
   variant-layout: horz
-  variants: 5
+  variants: 7
   weights:
-  - 40
+  - 50
   - 2
   - 2
   - 2
   - 2
+  - 1
+  - 1

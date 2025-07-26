@@ -92,9 +92,9 @@ def assignTileVariant(image, tile_pos,tile_colour):
                 match = False
                 break
         if match:
-            print(f"Match found with ID: {pattern_id}")
+            #print(f"Match found with ID: {pattern_id}")
             return pattern_id
-    print("No tile matched, default to 24")
+    #print("No tile matched, default to 24")
     return 24
 
 def checkTile(colour):
@@ -106,10 +106,12 @@ def checkTile(colour):
 
 LevelName = input("Please enter the name of the level you would like to create: ")
 tileset = input("assign tileset: ") + ".yaml"
+fillBorderSize = 32
 with open(tileset, 'r') as f:
     tilesetyaml = yaml.safe_load(f)
 LevelImage = Image.open(LevelName +".png")
-functionList = [f"fill 0 0 0 {LevelImage.width} 1 {LevelImage.height} air"]
+functionList = [f"fill {0 - fillBorderSize} 1 {0 - fillBorderSize} {LevelImage.width + fillBorderSize} 1 {LevelImage.height + fillBorderSize} minecraft:{tilesetyaml['tiletypes'][0].get('block-ids')[24]}",f"fill 0 0 0 {LevelImage.width} 1 {LevelImage.height} air"]
+
 
 for x in range(0,LevelImage.width):
     for y in range(0,LevelImage.height):
