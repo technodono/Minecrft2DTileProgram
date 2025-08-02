@@ -110,7 +110,7 @@ fillBorderSize = 50
 with open(tileset, 'r') as f:
     tilesetyaml = yaml.safe_load(f)
 LevelImage = Image.open(LevelName +".png")
-functionList = [f"fill {0 - fillBorderSize} 1 {0 - fillBorderSize} {LevelImage.width + fillBorderSize} 1 {LevelImage.height + fillBorderSize} minecraft:{tilesetyaml['tiletypes'][0].get('block-ids')[24]}",f"fill 0 0 0 {LevelImage.width} 1 {LevelImage.height} air"]
+functionList = ["function pushblock:level_object/kill_all",f"fill {0 - fillBorderSize} 1 {0 - fillBorderSize} {LevelImage.width + fillBorderSize} 1 {LevelImage.height + fillBorderSize} minecraft:{tilesetyaml['tiletypes'][0].get('block-ids')[24]}",f"fill 0 0 0 {LevelImage.width-1} 1 {LevelImage.height-1} air"]
 
 
 for x in range(0,LevelImage.width):
@@ -127,5 +127,7 @@ for x in range(0,LevelImage.width):
         else:
             functionList.append(f"setblock {x} 1 {y} {tilesetyaml['tiletypes'][TileTypeID].get('block-ids')[variantID]}")
 
+# Summon the camera marker if none is detected
+functionList.append(f"execute positioned {LevelImage.width/2} ~ {LevelImage.height/2} run function pushblock:level_object/camera_holder/summon")
 for command in functionList:
     print(command)
