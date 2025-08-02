@@ -106,7 +106,7 @@ def checkTile(colour):
 
 LevelName = input("Please enter the name of the level you would like to create: ")
 tileset = input("assign tileset: ") + ".yaml"
-fillBorderSize = 32
+fillBorderSize = 50
 with open(tileset, 'r') as f:
     tilesetyaml = yaml.safe_load(f)
 LevelImage = Image.open(LevelName +".png")
