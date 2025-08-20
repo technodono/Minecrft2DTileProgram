@@ -109,25 +109,39 @@ tileset = input("assign tileset: ") + ".yaml"
 fillBorderSize = 50
 with open(tileset, 'r') as f:
     tilesetyaml = yaml.safe_load(f)
-LevelImage = Image.open(LevelName +".png")
-functionList = ["function pushblock:level_object/kill_all",f"fill {0 - fillBorderSize} 1 {0 - fillBorderSize} {LevelImage.width + fillBorderSize} 1 {LevelImage.height + fillBorderSize} minecraft:{tilesetyaml['tiletypes'][0].get('block-ids')[24]}",f"fill 0 0 0 {LevelImage.width-1} 1 {LevelImage.height-1} air"]
-
+objectmapyaml = yaml.safe_load(open("level_objects.yaml").read())
+LevelImage = Image.open(f"{LevelName}.png")
+LevelEntityImage = Image.open(f"{LevelName}_e.png")
+functionList = [f"fill {0 - fillBorderSize} 1 {0 - fillBorderSize} {LevelImage.width + fillBorderSize} 1 {LevelImage.height + fillBorderSize} minecraft:{tilesetyaml['tiletypes'][0].get('block-ids')[24]}",f"fill 0 0 0 {LevelImage.width-1} 1 {LevelImage.height-1} air"]
+entityfunctionList = ["function pushblock:level_object/kill_all",f"execute positioned {LevelImage.width/2} ~ {LevelImage.height/2} run function pushblock:level_object/camera_holder/summon"]
 
 for x in range(0,LevelImage.width):
     for y in range(0,LevelImage.height):
-        SelectedTileRGBAColour = LevelImage.getpixel((x,y))
-        TileTypeID = checkTile(SelectedTileRGBAColour)
+        TileTypeID = checkTile(LevelImage.getpixel((x,y)))
         if tilesetyaml['tiletypes'][TileTypeID].get('auto-tile'):
             print(f"auto-tile found with ID: {TileTypeID}")
             variantID = assignTileVariant(LevelImage, (x, y), tilesetyaml['tiletypes'][TileTypeID].get('colour', None))
         else:
-            variantID = 0;
+            variantID = 0
         if tilesetyaml['tiletypes'][TileTypeID].get('layer') == 'bg':
             functionList.append(f"setblock {x} 0 {y} {tilesetyaml['tiletypes'][TileTypeID].get('block-ids')[variantID]}")
         else:
             functionList.append(f"setblock {x} 1 {y} {tilesetyaml['tiletypes'][TileTypeID].get('block-ids')[variantID]}")
 
-# Summon the camera marker if none is detected
-functionList.append(f"execute positioned {LevelImage.width/2} ~ {LevelImage.height/2} run function pushblock:level_object/camera_holder/summon")
+# Handle entities seperately with thier own function file
+for x in range(0,LevelEntityImage.width):
+    for y in range(0,LevelEntityImage.height):
+        pixelColour = LevelEntityImage.getpixel((x,y))
+        if pixelColour == (0,0,0,0):
+            print("no tile present")
+            continue
+        for objecttype in objectmapyaml["objects"]:
+            if objecttype['colour'] == pixelColour:
+                print(f"match found: {objecttype['type']}")
+                entityfunctionList.append(f"execute positioned {x} 0 {y} run function pushblock:level_object/{objecttype['type']}/summon")
+                continue
+
 for command in functionList:
+    print(command)
+for command in entityfunctionList:
     print(command)

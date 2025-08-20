@@ -1,4 +1,7 @@
-colour: #000000
+objects:
+  - colour: "#000000"
     type: pushblock
- colour: #ffffff
+  - colour: "#ffffff"
+    type: player
+  - colour: "#aaaaaa"
     type: player
