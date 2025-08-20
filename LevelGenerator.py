@@ -141,6 +141,7 @@ for x in range(0,LevelEntityImage.width):
                 entityfunctionList.append(f"execute positioned {x} 0 {y} run function pushblock:level_object/{objecttype['type']}/summon")
                 continue
 
+
 for command in functionList:
     print(command)
 for command in entityfunctionList:
