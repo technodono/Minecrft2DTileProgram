@@ -1,2 +1,23 @@
 function pushblock:level_object/kill_all
 execute positioned 16.0 ~ 16.0 run function pushblock:level_object/camera_holder/summon
+execute positioned 5 0 8 run function pushblock:level_object/pushblock/summon
+execute positioned 5 0 9 run function pushblock:level_object/pushblock/summon
+execute positioned 5 0 10 run function pushblock:level_object/pushblock/summon
+execute positioned 6 0 8 run function pushblock:level_object/pushblock/summon
+execute positioned 6 0 10 run function pushblock:level_object/pushblock/summon
+execute positioned 7 0 8 run function pushblock:level_object/pushblock/summon
+execute positioned 7 0 9 run function pushblock:level_object/pushblock/summon
+execute positioned 7 0 10 run function pushblock:level_object/pushblock/summon
+execute positioned 9 0 14 run function pushblock:level_object/player/summon
+execute positioned 18 0 8 run function pushblock:level_object/pushblock/summon
+execute positioned 18 0 9 run function pushblock:level_object/pushblock/summon
+execute positioned 18 0 10 run function pushblock:level_object/pushblock/summon
+execute positioned 18 0 11 run function pushblock:level_object/pushblock/summon
+execute positioned 18 0 12 run function pushblock:level_object/pushblock/summon
+execute positioned 19 0 8 run function pushblock:level_object/pushblock/summon
+execute positioned 19 0 12 run function pushblock:level_object/pushblock/summon
+execute positioned 20 0 8 run function pushblock:level_object/pushblock/summon
+execute positioned 20 0 9 run function pushblock:level_object/pushblock/summon
+execute positioned 20 0 10 run function pushblock:level_object/pushblock/summon
+execute positioned 20 0 11 run function pushblock:level_object/pushblock/summon
+execute positioned 20 0 12 run function pushblock:level_object/pushblock/summon

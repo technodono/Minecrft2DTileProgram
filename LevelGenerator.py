@@ -133,13 +133,13 @@ for x in range(0,LevelImage.width):
 for x in range(0,LevelEntityImage.width):
     for y in range(0,LevelEntityImage.height):
         pixelColour = LevelEntityImage.getpixel((x,y))
-        print(pixelColour)
         if pixelColour == (0,0,0,0):
-            print("no tile present")
+            #print("no tile present")
             continue
         for objecttype in objectmapyaml["objects"]:
-            #print(objecttype['colour'])
-            if objecttype['colour'] == pixelColour:
+            #print(type(pixelColour), type(objecttype['colour']))
+            #print(f"pixel: {pixelColour} compared to: {objecttype['colour']}")
+            if tuple(objecttype['colour']) == pixelColour:
                 print(f"match found: {objecttype['type']}")
                 entityfunctionList.append(f"execute positioned {x} 0 {y} run function pushblock:level_object/{objecttype['type']}/summon")
                 continue
