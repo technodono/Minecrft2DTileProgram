@@ -27,7 +27,29 @@ cube_model_blocks = [
     "red_terracotta", "black_terracotta", "concrete", "white_concrete", "orange_concrete",
     "magenta_concrete", "light_blue_concrete", "yellow_concrete", "lime_concrete", "pink_concrete",
     "gray_concrete", "light_gray_concrete", "cyan_concrete", "purple_concrete", "blue_concrete",
-    "brown_concrete", "green_concrete", "red_concrete", "black_concrete", "hay_block", "bookshelf"
+    "brown_concrete", "green_concrete", "red_concrete", "black_concrete", "hay_block", "bookshelf",
+    "cobblestone", "mossy_cobblestone","granite", "polished_granite",
+    "diorite", "polished_diorite","andesite", "polished_andesite","smooth_stone",
+    "quartz_block","smooth_quartz","chiseled_quartz_block",
+    "sandstone", "cut_sandstone", "smooth_sandstone", "chiseled_sandstone", "red_sandstone",
+    "cut_red_sandstone", "smooth_red_sandstone", "chiseled_red_sandstone",
+    "end_stone_bricks","prismarine_bricks", "coarse_dirt", "podzol",
+    "mycelium", "rooted_dirt", "moss_block",
+    "warped_nylium", "crimson_nylium", "oak_log", "spruce_log", "birch_log", "jungle_log",
+    "acacia_log", "dark_oak_log", "mangrove_log", "cherry_log", "bamboo_block",
+    "crimson_stem", "warped_stem",
+    "oak_wood", "spruce_wood", "birch_wood", "jungle_wood",
+    "acacia_wood", "dark_oak_wood", "mangrove_wood", "cherry_wood",
+    "crimson_hyphae", "warped_hyphae",
+    "stripped_oak_log", "stripped_spruce_log", "stripped_birch_log", "stripped_jungle_log",
+    "stripped_acacia_log", "stripped_dark_oak_log", "stripped_mangrove_log", "stripped_cherry_log",
+    "stripped_bamboo_block", "stripped_crimson_stem", "stripped_warped_stem",
+    "stripped_oak_wood", "stripped_spruce_wood", "stripped_birch_wood", "stripped_jungle_wood",
+    "stripped_acacia_wood", "stripped_dark_oak_wood", "stripped_mangrove_wood", "stripped_cherry_wood",
+    "stripped_crimson_hyphae", "stripped_warped_hyphae",
+    "crafting_table", "smithing_table", "fletching_table", "cartography_table", "loom",
+    "note_block", "jukebox", "target", "beacon","dried_kelp_block",
+    "melon", "pumpkin", "carved_pumpkin", "jack_o_lantern","red_mushroom_block", "brown_mushroom_block", "mushroom_stem"
 ]
 
 
@@ -52,7 +74,8 @@ def writeToJsonBlockstate(json_data, index):
 tileset = input("tileset name: ") + ".yaml"
 tilesetopened = open(tileset)
 tileset_yaml = yaml.safe_load(tilesetopened)
-block_index = 0
+block_index = 0 #CHANGE AS REQUIRED
+start_block_index = block_index #SAVE FOR LATER
 variants_json_list = []
 
 for tiles in tileset_yaml['tiletypes']:
@@ -98,6 +121,8 @@ for tiles in tileset_yaml['tiletypes']:
     }
     writeToJsonBlockstate(json_data, block_index - tiles['variants'])
 
+end_block_index = block_index - 1
+tileset_yaml['blockidsused'] = [start_block_index, end_block_index]
 with open(tileset, "w") as file_write:
     yaml.dump(tileset_yaml, file_write)
 
