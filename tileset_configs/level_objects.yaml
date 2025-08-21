@@ -4,4 +4,4 @@ objects:
   - colour: "#ffffff"
     type: player
   - colour: "#aaaaaa"
-    type: player
+    type: button

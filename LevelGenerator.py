@@ -109,11 +109,10 @@ def checkTile(colour):
 LevelName = input("Please enter the name of the level you would like to create: ")
 tileset = input("assign tileset: ") + ".yaml"
 fillBorderSize = 50
-with open(tileset, 'r') as f:
-    tilesetyaml = yaml.safe_load(f)
-objectmapyaml = yaml.safe_load(open("tileset_configs/level_objects.yaml").read())
-LevelImage = Image.open(f"{LevelName}.png")
-LevelEntityImage = Image.open(f"{LevelName}_e.png")
+tilesetyaml = yaml.safe_load(open(f"tileset_configs/{tileset}"))
+objectmapyaml = yaml.safe_load(open("tileset_configs/level_objects.yaml"))
+LevelImage = Image.open(f"assets/levels/{LevelName}.png")
+LevelEntityImage = Image.open(f"assets/levels/{LevelName}_e.png")
 functionList = [f"fill {0 - fillBorderSize} 1 {0 - fillBorderSize} {LevelImage.width + fillBorderSize} 1 {LevelImage.height + fillBorderSize} minecraft:{tilesetyaml['tiletypes'][0].get('block-ids')[24]}",f"fill 0 0 0 {LevelImage.width-1} 1 {LevelImage.height-1} air"]
 entityfunctionList = ["function pushblock:level_object/kill_all",f"execute positioned {LevelImage.width/2} ~ {LevelImage.height/2} run function pushblock:level_object/camera_holder/summon"]
 
@@ -143,9 +142,9 @@ for x in range(0,LevelEntityImage.width):
                 entityfunctionList.append(f"execute positioned {x} 0 {y} run function pushblock:level_object/{objecttype['type']}/summon")
                 continue
 
-write()
-
-for command in functionList:
-    print(command)
-for command in entityfunctionList:
-    print(command)
+level_data = open(f"level_output/{LevelName}.mcfunction", "w")
+level_data_e = open(f"level_output/{LevelName}_e.mcfunction", "w")
+level_data.write("\n".join(functionList))
+level_data_e.write("\n".join(entityfunctionList))
+level_data.close()
+level_data_e.close()
