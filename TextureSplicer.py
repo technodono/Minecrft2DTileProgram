@@ -4,7 +4,7 @@ ResourcePackScale = 16
 TilesetName = input("Please enter the name of the tileset you would like to generate: ")
 ImageOutputDir = os.path.join("resources", "assets", "tiles", "textures", TilesetName,"")
 os.makedirs(ImageOutputDir, exist_ok=True)
-TilesetImage = Image.open(TilesetName +".png")
+TilesetImage = Image.open(f"assets/tilesets/{TilesetName}.png")
 for x in range(0,TilesetImage.width,ResourcePackScale):
     for y in range(0,TilesetImage.height,ResourcePackScale):
 

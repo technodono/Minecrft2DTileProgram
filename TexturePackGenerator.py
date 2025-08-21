@@ -69,12 +69,11 @@ def writeToJsonBlockstate(json_data, index):
     json_file = open(f"resources/assets/minecraft/blockstates/{cube_model_blocks[index]}.json", 'w')
     json.dump(json_data, json_file)
 
-##########################x
+##########################
 
 tileset = input("tileset name: ") + ".yaml"
-tilesetopened = open(tileset)
-tileset_yaml = yaml.safe_load(tilesetopened)
-block_index = 0 #CHANGE AS REQUIRED
+tileset_yaml = yaml.safe_load(open(f"tileset_configs/{tileset}"))
+block_index = 57 #CHANGE AS REQUIRED
 start_block_index = block_index #SAVE FOR LATER
 variants_json_list = []
 
@@ -123,7 +122,7 @@ for tiles in tileset_yaml['tiletypes']:
 
 end_block_index = block_index - 1
 tileset_yaml['blockidsused'] = [start_block_index, end_block_index]
-with open(tileset, "w") as file_write:
+with open(f"tileset_configs/{tileset}", "w") as file_write:
     yaml.dump(tileset_yaml, file_write)
 
 

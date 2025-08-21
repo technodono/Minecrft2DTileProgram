@@ -1,5 +1,7 @@
 import os
 import sys
+from os import write
+
 from PIL import Image
 import yaml
 #row_1
@@ -109,7 +111,7 @@ tileset = input("assign tileset: ") + ".yaml"
 fillBorderSize = 50
 with open(tileset, 'r') as f:
     tilesetyaml = yaml.safe_load(f)
-objectmapyaml = yaml.safe_load(open("level_objects.yaml").read())
+objectmapyaml = yaml.safe_load(open("tileset_configs/level_objects.yaml").read())
 LevelImage = Image.open(f"{LevelName}.png")
 LevelEntityImage = Image.open(f"{LevelName}_e.png")
 functionList = [f"fill {0 - fillBorderSize} 1 {0 - fillBorderSize} {LevelImage.width + fillBorderSize} 1 {LevelImage.height + fillBorderSize} minecraft:{tilesetyaml['tiletypes'][0].get('block-ids')[24]}",f"fill 0 0 0 {LevelImage.width-1} 1 {LevelImage.height-1} air"]
@@ -140,6 +142,8 @@ for x in range(0,LevelEntityImage.width):
                 print(f"match found: {objecttype['type']}")
                 entityfunctionList.append(f"execute positioned {x} 0 {y} run function pushblock:level_object/{objecttype['type']}/summon")
                 continue
+
+write()
 
 for command in functionList:
     print(command)
