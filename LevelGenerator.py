@@ -141,7 +141,7 @@ for x in range(0,LevelEntityImage.width):
             #print(f"pixel: {pixelColour} compared to: {objecttype['colour']}")
             if tuple(objecttype['colour']) == pixelColour:
                 print(f"match found: {objecttype['type']}")
-                entityfunctionList.append(f"execute positioned {x} 0 {y} run function pushblock:level_object/{objecttype['type']}/summon")
+                entityfunctionList.append(f"execute positioned {x} 1 {y} run function pushblock:level_object/{objecttype['type']}/summon")
                 continue
 
 level_data = open(f"level_output/{LevelName}.mcfunction", "w")
