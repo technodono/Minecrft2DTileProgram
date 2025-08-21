@@ -120,7 +120,7 @@ for x in range(0,LevelImage.width):
     for y in range(0,LevelImage.height):
         TileTypeID = checkTile(LevelImage.getpixel((x,y)))
         if tilesetyaml['tiletypes'][TileTypeID].get('auto-tile'):
-            print(f"auto-tile found with ID: {TileTypeID}")
+            #print(f"auto-tile found with ID: {TileTypeID}")
             variantID = assignTileVariant(LevelImage, (x, y), tilesetyaml['tiletypes'][TileTypeID].get('colour', None))
         else:
             variantID = 0
@@ -133,10 +133,12 @@ for x in range(0,LevelImage.width):
 for x in range(0,LevelEntityImage.width):
     for y in range(0,LevelEntityImage.height):
         pixelColour = LevelEntityImage.getpixel((x,y))
+        print(pixelColour)
         if pixelColour == (0,0,0,0):
             print("no tile present")
             continue
         for objecttype in objectmapyaml["objects"]:
+            #print(objecttype['colour'])
             if objecttype['colour'] == pixelColour:
                 print(f"match found: {objecttype['type']}")
                 entityfunctionList.append(f"execute positioned {x} 0 {y} run function pushblock:level_object/{objecttype['type']}/summon")
