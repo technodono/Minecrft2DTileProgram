@@ -4,6 +4,11 @@
       "type": "minecraft:directory",
       "prefix": "test/",
       "source": "test"
+    },
+    {
+      "type": "minecraft:directory",
+      "prefix": "world_2/",
+      "source": "world_2"
     }
   ]
 }

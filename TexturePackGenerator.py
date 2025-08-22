@@ -20,11 +20,11 @@ cube_model_blocks = [
     "ancient_debris", "crying_obsidian", "obsidian", "prismarine", "dark_prismarine", "sea_lantern",
     "bricks", "stone_bricks", "mossy_stone_bricks", "cracked_stone_bricks", "chiseled_stone_bricks",
     "deepslate_bricks", "cracked_deepslate_bricks", "deepslate_tiles", "cracked_deepslate_tiles",
-    "mud_bricks", "packed_mud", "mud", "terracotta", "white_terracotta", "orange_terracotta",
+    "mud_bricks", "packed_mud", "terracotta", "white_terracotta", "orange_terracotta",
     "magenta_terracotta", "light_blue_terracotta", "yellow_terracotta", "lime_terracotta",
     "pink_terracotta", "gray_terracotta", "light_gray_terracotta", "cyan_terracotta",
     "purple_terracotta", "blue_terracotta", "brown_terracotta", "green_terracotta",
-    "red_terracotta", "black_terracotta", "concrete", "white_concrete", "orange_concrete",
+    "red_terracotta", "black_terracotta", "white_concrete", "orange_concrete",
     "magenta_concrete", "light_blue_concrete", "yellow_concrete", "lime_concrete", "pink_concrete",
     "gray_concrete", "light_gray_concrete", "cyan_concrete", "purple_concrete", "blue_concrete",
     "brown_concrete", "green_concrete", "red_concrete", "black_concrete", "hay_block", "bookshelf",
@@ -70,10 +70,13 @@ def writeToJsonBlockstate(json_data, index):
     json.dump(json_data, json_file)
 
 ##########################
-
+input("check block index before running!")
 tileset = input("tileset name: ") + ".yaml"
 tileset_yaml = yaml.safe_load(open(f"tileset_configs/{tileset}"))
+
+#################### BINDEX
 block_index = 57 #CHANGE AS REQUIRED
+#####################################
 start_block_index = block_index #SAVE FOR LATER
 variants_json_list = []
 

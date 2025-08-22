@@ -1,7 +1,7 @@
 blockidsused:
 - 57
 - 113
-name: test
+name: world_2
 tiletypes:
 - auto-tile: true
   block-ids:
@@ -24,12 +24,12 @@ tiletypes:
   - cracked_deepslate_tiles
   - mud_bricks
   - packed_mud
-  - mud
   - terracotta
   - white_terracotta
   - orange_terracotta
   - magenta_terracotta
   - light_blue_terracotta
+  - yellow_terracotta
   colour:
   - 0
   - 0
@@ -46,7 +46,6 @@ tiletypes:
   - 1
 - auto-tile: true
   block-ids:
-  - yellow_terracotta
   - lime_terracotta
   - pink_terracotta
   - gray_terracotta
@@ -58,7 +57,6 @@ tiletypes:
   - green_terracotta
   - red_terracotta
   - black_terracotta
-  - concrete
   - white_concrete
   - orange_concrete
   - magenta_concrete
@@ -71,6 +69,8 @@ tiletypes:
   - cyan_concrete
   - purple_concrete
   - blue_concrete
+  - brown_concrete
+  - green_concrete
   colour:
   - 255
   - 255
@@ -87,7 +87,7 @@ tiletypes:
   - 1
 - auto-tile: false
   block-ids:
-  - brown_concrete
+  - red_concrete
   colour:
   - 0
   - 0

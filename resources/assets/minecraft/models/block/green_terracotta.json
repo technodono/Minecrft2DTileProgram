@@ -1,1 +1,1 @@
-{"parent": "minecraft:block/bg", "textures": {"texture": "tiles:test/test_1_5", "particle": "tiles:test/test_1_5"}}
+{"parent": "minecraft:block/bg", "textures": {"texture": "tiles:world_2/world_2_0_5", "particle": "tiles:world_2/world_2_0_5"}}
