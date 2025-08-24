@@ -143,7 +143,6 @@ for x in range(0,LevelEntityImage.width):
                 print(f"match found: {objecttype['type']}")
                 entityfunctionList.append(f"execute positioned {x} 1 {y} run function pushblock:level_object/{objecttype['type']}/summon")
                 continue
-
 level_data = open(f"level_output/{LevelName}.mcfunction", "w")
 level_data_e = open(f"level_output/{LevelName}_e.mcfunction", "w")
 level_data.write("\n".join(functionList))
